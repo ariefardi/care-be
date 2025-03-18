@@ -15,6 +15,6 @@
 		"forceConsistentCasingInFileNames": true,
 		"types": ["vitest/globals"]
 	},
-	"include": ["src/**/*"],
+	"include": ["src/**/*", "knexfile.ts"],
 	"exclude": ["node_modules"]
 }
