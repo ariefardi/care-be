@@ -10,7 +10,7 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 
 - Clone the repository: `git clone https://github.com/edwinhern/express-typescript-2024.git`
 - Navigate: `cd ./krom-be`
-- Install dependencies: `npm ci`
+- Install dependencies: `npm ci` or `npm i`
 
 #### Step 2: ⚙️ Environment Configuration
 
