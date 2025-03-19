@@ -8,7 +8,7 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 
 #### Step 1: 🚀 Initial Setup
 
-- Clone the repository: `git clone https://github.com/edwinhern/express-typescript-2024.git`
+- Clone the repository: `git clone https://github.com/ariefardi/krom-be.git`
 - Navigate: `cd ./krom-be`
 - Install dependencies: `npm ci` or `npm i`
 
@@ -28,6 +28,10 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 - Development Mode: `npm run start`
 - Building: `npm run build`
 - Production Mode: Set `.env` to `NODE_ENV="production"` then `npm run build && npm run start`
+
+#### Step Docker: 🏃‍♂️ Running the Project with Docker
+
+- Use `docker-compose up --build`
 
 ## 📁 Folder Structure
 
@@ -53,17 +57,17 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 │   │   │   ├── userRepository.ts
 │   │   │   ├── userRouter.ts
 │   │   │   └── userService.ts
-        └─── candidate
-            ├── __tests__
-                ├── candidateController.test.ts
-                ├── candidateRepository.test.ts
-                ├── candidateRouter.test.ts
-                └── candidateService.test.ts
-            ├── candidateController.ts
-            ├── candidateModel.ts
-            ├── candidateRepository.ts
-            ├── candidateRouter.ts
-            ├── candidateService.ts
+│   │   └─── candidate
+│   │       ├── __tests__
+│   │       │   ├── candidateController.test.ts
+│   │       │   ├── candidateRepository.test.ts
+│   │       │   ├── candidateRouter.test.ts
+│   │       │   └── candidateService.test.ts
+│   │       ├── candidateController.ts
+│   │       ├── candidateModel.ts
+│   │       ├── candidateRepository.ts
+│   │       ├── candidateRouter.ts
+│   │       └── candidateService.ts
 │   ├── api-docs
 │   │   ├── __tests__
 │   │   │   └── openAPIRouter.test.ts
@@ -89,5 +93,4 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 ├── tsconfig.json
 └── vite.config.mts
 
-14 directories, 31 files
 ```

@@ -5,9 +5,8 @@ services:
     image: mysql:8
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_DATABASE: hr-dev
-      MYSQL_USER: root
       MYSQL_PASSWORD: 12345678
     ports:
       - "3306:3306"
@@ -28,7 +27,7 @@ services:
       DATABASE_PORT: 3306
     volumes:
       - .:/app
-    command: npm run dev # Adjust based on your setup
+    command: npm run start
 
 volumes:
   mysql_data:
