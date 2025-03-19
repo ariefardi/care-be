@@ -16,7 +16,7 @@ healthCheckRegistry.registerPath({
 	responses: createApiResponse(z.null(), "Success"),
 });
 
-healthCheckRouter.get("/", (_req: Request, res: Response) => {
+healthCheckRouter.get("/", (_req: Request, res: Response): any => {
 	const serviceResponse = ServiceResponse.success("Service is healthy", null);
 	return handleServiceResponse(serviceResponse, res);
 });

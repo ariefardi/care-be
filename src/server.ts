@@ -20,7 +20,7 @@ const app: Express = express();
 app.set("trust proxy", true);
 
 // Middlewares
-console.log('env.CORS_ORIGIN', env.CORS_ORIGIN)
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));

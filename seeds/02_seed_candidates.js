@@ -27,6 +27,8 @@ exports.seed = async function (knex) {
       candidate_role_id: roles[Math.floor(Math.random() * roles.length)].id,
       candidate_location: faker.location.country(),
       candidate_application_status: statuses[Math.floor(Math.random() * statuses.length)],
+      candidate_resume_url: "https://ariefardi.com" ,
+      candidate_image_url: "https://i.pinimg.com/736x/0a/5c/75/0a5c75ecc0fae4e75f87002b5640be89.jpg",
       updatedAt: knex.fn.now(),
       createdAt: knex.fn.now(),
     });
