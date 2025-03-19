@@ -16,8 +16,14 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 
 - Create `.env`: Copy `.env.template` to `.env`
 - Update `.env`: Fill in necessary environment variables
+- Create your own database ex: `hr-dev`
 
-#### Step 3: 🏃‍♂️ Running the Project
+#### Step 3: 🏃‍♂️ Prepare Database
+
+- Run `npm run init` to migrate and seed the table
+- Make sure configuration `.env` compatible
+
+#### Step 4: 🏃‍♂️ Running the Project
 
 - Development Mode: `npm run start`
 - Building: `npm run build`
@@ -31,6 +37,7 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 ├── biome.json
 ├── package-lock.json
 ├── package.json
+├── docker-compose.yml
 ├── src
 │   ├── api
 │   │   ├── healthCheck
@@ -47,6 +54,11 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 │   │   │   ├── userRouter.ts
 │   │   │   └── userService.ts
         └─── candidate
+            ├── __tests__
+                ├── candidateController.test.ts
+                ├── candidateRepository.test.ts
+                ├── candidateRouter.test.ts
+                └── candidateService.test.ts
             ├── candidateController.ts
             ├── candidateModel.ts
             ├── candidateRepository.ts
