@@ -58,6 +58,6 @@ export class CandidateRepository {
 
     public async create(candidateData: Partial<Candidate>) {
         const [createdCandidate] = await db<Candidate>("candidates").insert(candidateData).returning("*");
-        return createdCandidate;
+        return {...candidateData, id: createdCandidate};
     }
 }

@@ -1,9 +1,9 @@
 {
-	"name": "express-typescript-boilerplate",
+	"name": "KROM-be",
 	"version": "1.0.14",
-	"description": "An Express boilerplate backend",
-	"author": "Edwin Hernandez",
-	"repository": "edwinhern/express-typescript-2024",
+	"description": "Krom-BE",
+	"author": "Arief Kurnia",
+	"repository": "ariefardi/krom-be",
 	"license": "MIT",
 	"main": "index.ts",
 	"private": true,
@@ -17,7 +17,9 @@
 		"test": "vitest run",
 		"test:cov": "vitest run --coverage",
 		"check": "pnpm lint && pnpm format && pnpm build && pnpm test",
-		"migrate": "npx knex migrate:latest"
+		"migrate": "npx knex migrate:latest",
+		"seed": "npx knex seed:run",
+		"init": "npm run migrate && npm run seed"
 	},
 	"dependencies": {
 		"@asteasolutions/zod-to-openapi": "7.3.0",
