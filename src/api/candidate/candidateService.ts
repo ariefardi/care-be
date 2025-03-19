@@ -13,10 +13,10 @@ export class CandidateService {
 	}
 
 	// Retrieves all users from the database
-	async findAll({limit = 10, page = 1}: { limit?: number, page?: number }): Promise<ServiceResponse<Candidate[] | null>> {
+	async findAll(query: { limit: number, page: number }): Promise<ServiceResponse<Candidate[] | null>> {
 		try {
-			const offset = (page - 1) * limit;
-			const candidates = await this.candidateRepository.findAllAsync({ limit, offset });
+			const offset = (query.page - 1) * query.limit;
+			const candidates = await this.candidateRepository.findAllAsync({offset, ...query });
 			const total = await this.candidateRepository.countCandidate();
 			const pageInfo: Page = {
 				total,
@@ -54,8 +54,8 @@ export class CandidateService {
 		try {
 			const newCandidate = await this.candidateRepository.create(candidateData);
 			return ServiceResponse.success("Candidate created successfully", newCandidate);
-		} catch (error) {
-			return ServiceResponse.failure("Error creating candidate", error);
+		} catch (error: any) {
+			return ServiceResponse.failure("Error creating candidate" + error?.sqlMessage, null);
 		}
 	}
 }

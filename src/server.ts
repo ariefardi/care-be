@@ -7,6 +7,7 @@ import { openAPIRouter } from "@/api-docs/openAPIRouter";
 import { healthCheckRouter } from "@/api/healthCheck/healthCheckRouter";
 import { userRouter } from "@/api/user/userRouter";
 import { candidateRouter } from "@/api/candidate/candidateRouter";
+import { roleRouter } from "./api/role/roleRouter";
 import errorHandler from "@/common/middleware/errorHandler";
 import rateLimiter from "@/common/middleware/rateLimiter";
 import requestLogger from "@/common/middleware/requestLogger";
@@ -19,6 +20,7 @@ const app: Express = express();
 app.set("trust proxy", true);
 
 // Middlewares
+console.log('env.CORS_ORIGIN', env.CORS_ORIGIN)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));
@@ -32,6 +34,7 @@ app.use(requestLogger);
 app.use("/health-check", healthCheckRouter);
 app.use("/users", userRouter);
 app.use("/candidates", candidateRouter);
+app.use("/roles", roleRouter)
 
 // Swagger UI
 app.use(openAPIRouter);

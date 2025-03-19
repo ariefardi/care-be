@@ -5,9 +5,12 @@ import { handleServiceResponse } from "@/common/utils/httpHandlers";
 
 class CandidateController {
     public getCandidateAll: RequestHandler = async (_req: Request, res: Response): Promise<void> => {
+        const { query } = _req;
         const limit = Number(_req.query.limit) || 10;
         const page = Number(_req.query.page) || 1;
-        const serviceResponse = await candidateService.findAll({ limit, page });
+        const options:any = { limit, page, ...query }
+        
+        const serviceResponse = await candidateService.findAll(options);
         handleServiceResponse(serviceResponse, res); // Just call the function, don't return it
     };
 

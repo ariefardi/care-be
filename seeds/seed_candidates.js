@@ -25,7 +25,7 @@ exports.seed = async function (knex) {
       candidate_yoe: faker.number.int({ min: 1, max: 15 }),
       candidate_phone_number: faker.phone.number(),
       candidate_role_id: roles[Math.floor(Math.random() * roles.length)].id,
-      candidate_location: faker.location.city(),
+      candidate_location: faker.location.country(),
       candidate_application_status: statuses[Math.floor(Math.random() * statuses.length)],
       updatedAt: knex.fn.now(),
       createdAt: knex.fn.now(),

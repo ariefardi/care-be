@@ -24,6 +24,7 @@ export const CandidateSchema = z.object({
     "Interview Done",
     "Hired",
   ]),
+  candidate_resume_url: z.string(),
   createdAt: z.date(),
   updatedAt: z.date(),
 });
@@ -38,8 +39,12 @@ export const GetCandidateSchema = z.object({
 export const GetCandidateListSchema = z.object({
   
   query: z.object({
-    limit: z.string().optional().transform((val) => (val ? Number(val) : 10)), // Default 10
-    page: z.string().optional().transform((val) => (val ? Number(val) : 1)), // Default 1
+    limit: z.string().optional().transform((val) => (val ? Number(val) : 10)), 
+    page: z.string().optional().transform((val) => (val ? Number(val) : 1)),
+    location: z.string().optional(),
+    status: z.string().optional(),
+    job: z.string().optional(),
+    keyword: z.string().optional(),
   }),
 });
 
@@ -61,6 +66,8 @@ export const CreateCandidateSchema = z.object({
       "Offer Rejected",
       "Interview Done",
       "Hired",
-    ]),
+    ]).default("Applied"),
+    candidate_image_url: z.string().optional().default('https://i.pinimg.com/736x/0a/5c/75/0a5c75ecc0fae4e75f87002b5640be89.jpg'),
+    candidate_resume_url: z.string().nonempty()
   }),
 });

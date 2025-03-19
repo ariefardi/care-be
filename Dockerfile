@@ -1,35 +1,20 @@
-# Base stage with pnpm setup
-FROM node:23.10.0-slim AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+# Use Node.js as the base image
+FROM node:20
+
+# Set working directory
 WORKDIR /app
 
-# Production dependencies stage
-FROM base AS prod-deps
-COPY package.json pnpm-lock.yaml ./
-# Install only production dependencies
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile --ignore-scripts
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-# Build stage - install all dependencies and build
-FROM base AS build
-COPY package.json pnpm-lock.yaml ./
-# Install all dependencies (including dev dependencies)
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --ignore-scripts
+# Install dependencies
+RUN npm ci
+
+# Copy the entire project
 COPY . .
-RUN pnpm run build
 
-# Final stage - combine production dependencies and build output
-FROM node:23.10.0-alpine AS runner
-WORKDIR /app
-COPY --from=prod-deps --chown=node:node /app/node_modules ./node_modules
-COPY --from=build --chown=node:node /app/dist ./dist
+# Expose port 3000
+EXPOSE 3000
 
-# Use the node user from the image
-USER node
-
-# Expose port 8080
-EXPOSE 8080
-
-# Start the server
-CMD ["node", "dist/index.js"]
+# Run migrations & start the app
+CMD ["sh", "-c", "npx knex migrate:latest && npm run dev"]
