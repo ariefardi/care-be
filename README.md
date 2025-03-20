@@ -29,7 +29,7 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 - Building: `npm run build`
 - Production Mode: Set `.env` to `NODE_ENV="production"` then `npm run build && npm run start`
 
-#### Step Docker: 🏃‍♂️ Running the Project with Docker
+#### Or Running with Docker: 🏃‍♂️ Running the Project with Docker
 
 - Use `docker-compose up --build`
 

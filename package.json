@@ -20,8 +20,10 @@
 		"migrate": "npx knex migrate:latest",
 		"seed": "npx knex seed:run",
 		"init": "npm run migrate && npm run seed",
-		"docker": "docker-compose up --build",
-		"dev": "npm run init && npm run start"
+		"docker": "docker compose up --build",
+		"dev": "npm run init && npm run start",
+		"docker-migrate": "docker compose exec app npx knex migrate:latest",
+		"docker-seed": "docker compose exec app npx knex seed:run"
 	},
 	"dependencies": {
 		"@asteasolutions/zod-to-openapi": "7.3.0",

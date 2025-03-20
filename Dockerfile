@@ -6,7 +6,7 @@ WORKDIR /app
 
 
 # Remove old node_modules
-RUN rm -rf node_modules
+RUN rm -rf node_modules yarn.lock
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -18,8 +18,10 @@ RUN yarn
 COPY . .
 
 
+
+
 # Expose port 3000
 EXPOSE 3000
 
 # Run migrations & start the app
-CMD ["sh", "-c", "npm run dev"]
+CMD ["sh", "-c", "npm run init"]
