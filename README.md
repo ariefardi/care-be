@@ -1,8 +1,8 @@
 ## 🛠️ Getting Started
 
-### Video Demo
+### Video Demo Local
 
-For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz55FDOIOSiG36LbJm6zXgD2uwdU6Q/view?usp=sharing) to see the setup and running of the project.
+For a visual guide, watch the [video demo](https://drive.google.com/file/d/1W91-0golMP8-3LHMZZMA7t8YMXzMm8ov/view?usp=sharing) to see the setup and running of the project.
 
 ### Step-by-Step Guide Running Locally
 
@@ -10,32 +10,49 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 
 - Clone the repository: `git clone https://github.com/ariefardi/krom-be.git`
 - Navigate: `cd ./krom-be`
-- Install dependencies: `npm ci` or `npm i`
+- Install dependencies: `yarn install`
 
 #### Step 2: ⚙️ Environment Configuration
 
-- Create `.env`: Copy `.env.template` to `.env`
+- Create `.env`: Copy `.env.local` to `.env`
 - Update `.env`: Fill in necessary environment variables
 - Create your own database ex: `hr-dev`
 
 #### Step 3: 🏃‍♂️ Prepare Database
 
-- Run `npm run init` to migrate and seed the table
+- Run `yarn init-dev` to migrate and seed the table
 - Make sure configuration `.env` compatible
 
 #### Step 4: 🏃‍♂️ Running the Project
 
-- Development Mode: `npm run start`
-- Building: `npm run build`
-- Production Mode: Set `.env` to `NODE_ENV="production"` then `npm run build && npm run start`
+- Development Mode: `yarn start`
+- Building: `yarn build`
+- Production Mode: Set `.env` to `NODE_ENV="production"` then `yarn build && yarn start`
+
+### Video Demo Docker
+
+For a visual guide, watch the [video demo](https://drive.google.com/file/d/1tpjNnMCLHq4aTBhwFKbacoBP-rQ5cP68/view?usp=sharing) to see the setup and running of the project.
 
 ### Running with Docker
 
-#### Running the Project with Docker
+#### Step 1:
 
-- Use `docker-compose up --build` to build latest image for docker
+- Create `.env`: Copy `.env.dev` to `.env`
+- Create `docker-compose.yml`: Copy `docker-compose.dev.yml`
+-
+
+#### Step 2: Running the Project with Docker
+
+-
+- Use `docker compose up --build` to build latest image for docker
+- Use `docker compose run --rm app yarn install` to install depedency (MacOs only)
 - Use `docker compose exec app npx knex migrate:latest` to migrate table that created from migration knex
 - Use `docker compose exec app npx knex seed:run` to seeding data
+
+#### Step 2: Prepare Migration
+
+- Use `docker compose exec app npx knex migrate:latest` to migrate table
+- Use `docker compose exec app npx knex seed:run` to seeding data into table
 
 ## 📁 Folder Structure
 
