@@ -4,7 +4,7 @@
 
 For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz55FDOIOSiG36LbJm6zXgD2uwdU6Q/view?usp=sharing) to see the setup and running of the project.
 
-### Step-by-Step Guide
+### Step-by-Step Guide Running Locally
 
 #### Step 1: 🚀 Initial Setup
 
@@ -29,9 +29,13 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 - Building: `npm run build`
 - Production Mode: Set `.env` to `NODE_ENV="production"` then `npm run build && npm run start`
 
-#### Or Running with Docker: 🏃‍♂️ Running the Project with Docker
+### Running with Docker
 
-- Use `docker-compose up --build`
+#### Running the Project with Docker
+
+- Use `docker-compose up --build` to build latest image for docker
+- Use `docker compose exec app npx knex migrate:latest` to migrate table that created from migration knex
+- Use `docker compose exec app npx knex seed:run` to seeding data
 
 ## 📁 Folder Structure
 
@@ -42,6 +46,8 @@ For a visual guide, watch the [video demo](https://drive.google.com/file/d/1zHAz
 ├── package-lock.json
 ├── package.json
 ├── docker-compose.yml
+├── migrations
+├── seeds
 ├── src
 │   ├── api
 │   │   ├── healthCheck
