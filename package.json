@@ -19,9 +19,9 @@
 		"check": "pnpm lint && pnpm format && pnpm build && pnpm test",
 		"migrate": "npx knex migrate:latest",
 		"seed": "npx knex seed:run",
-		"init": "npm run migrate && npm run seed",
+		"init-dev": "npm run migrate && npm run seed",
 		"docker": "docker compose up --build",
-		"dev": "npm run init && npm run start",
+		"dev": "npm run init-dev && npm run start",
 		"docker-migrate": "docker compose exec app npx knex migrate:latest",
 		"docker-seed": "docker compose exec app npx knex seed:run"
 	},
