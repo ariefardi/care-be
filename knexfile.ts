@@ -5,7 +5,7 @@ dotenv.config(); // Load environment variables
 
 const config: { [key: string]: Knex.Config } = {
   development: {
-    client: "mysql2",
+    client: "pg",
     // conn: 20,  // Increase from default (10) to 20
     
     connection: {
@@ -13,7 +13,7 @@ const config: { [key: string]: Knex.Config } = {
       user: process.env.DB_USER || "root",
       password: process.env.DB_PASSWORD || "password",
       database: process.env.DB_NAME || "my_database",
-      port: Number(process.env.DATABASE_PORT) || 3306,
+      port: Number(process.env.DATABASE_PORT) || 5432,
     },
     pool: {
       min: 2,   // Minimum number of connections

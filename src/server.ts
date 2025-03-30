@@ -8,6 +8,7 @@ import { healthCheckRouter } from "@/api/healthCheck/healthCheckRouter";
 import { userRouter } from "@/api/user/userRouter";
 import { candidateRouter } from "@/api/candidate/candidateRouter";
 import { roleRouter } from "./api/role/roleRouter";
+import { transactionRouter } from "./api/transaction/transactionRouter"
 import errorHandler from "@/common/middleware/errorHandler";
 import rateLimiter from "@/common/middleware/rateLimiter";
 import requestLogger from "@/common/middleware/requestLogger";
@@ -35,6 +36,7 @@ app.use("/health-check", healthCheckRouter);
 app.use("/users", userRouter);
 app.use("/candidates", candidateRouter);
 app.use("/roles", roleRouter)
+app.use("/transactions", transactionRouter);
 
 // Swagger UI
 app.use(openAPIRouter);
