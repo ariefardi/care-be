@@ -6,6 +6,9 @@ export class TreatmentRepository {
           .whereIn("id", treatmentIds)
           .select("id", "cost");
     }
+    public async getAll() {
+        return db("treatments").select("*");
+    }
 }
 
 export const treatmentRepository = new TreatmentRepository();

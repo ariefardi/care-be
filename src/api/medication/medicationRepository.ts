@@ -5,7 +5,10 @@ export class MedicationRepository {
         return db("medications")
           .whereIn("id", medicationIds)
           .select("id", "cost");
-      }
+    }
+    public async getAll() {
+        return db("medications").select("*");
+    }
 }
 
 export const treatmentRepository = new MedicationRepository();
